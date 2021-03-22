@@ -7,4 +7,5 @@ public class MenuManager {
 		System.out.println("4. View Money Spend");
 		System.out.println("5. Exit");
 	}
+	1561621
 }
