@@ -1,5 +1,3 @@
-module MoneyManagementSystem {
-}
 public class MenuManager {
 
 	public static void main(String[] args) {
@@ -9,5 +7,4 @@ public class MenuManager {
 		System.out.println("4. View Money Spend");
 		System.out.println("5. Exit");
 	}
-
 }
