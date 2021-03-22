@@ -28,17 +28,14 @@ public class MenuManager {
 				String datemoneyspend = input.next();
 				System.out.print("Amount of Money Spend:");
 				int amountmoneyspend = input.nextInt();
-				break;
 			}
 			else if (num == 2) {
 				System.out.print("Delete Money Spend:");
 				int deletemoneyspend = input.nextInt();
-				break;
 			}
 			else if (num == 3) {
 				System.out.print("Edit Money Spend:");
 				int editmoneyspend = input.nextInt();
-				break;
 			}
 			else if (num == 4) {
 				System.out.print("View Money Spend:");
