@@ -21,29 +21,46 @@ public class MenuManager {
 			showMenu();
 			num = input.nextInt();
 			if (num == 1) {
-				System.out.println("Eat:1, Transportation:2, Play outside:3, Other:4");
-				System.out.print("Type of Money Spend:");
-				int typemoneyspend = input.nextInt();
-				System.out.print("Date of Money Spend:");
-				String datemoneyspend = input.next();
-				System.out.print("Amount of Money Spend:");
-				int amountmoneyspend = input.nextInt();
+				addmoney();
 			}
 			else if (num == 2) {
-				System.out.print("Delete Money Spend:");
-				int deletemoneyspend = input.nextInt();
+				deletemoney();
 			}
 			else if (num == 3) {
-				System.out.print("Edit Money Spend:");
-				int editmoneyspend = input.nextInt();
+				editmoney();
 			}
 			else if (num == 4) {
-				System.out.print("View Money Spend:");
-				int viewmoneyspend = input.nextInt();
+				viewmoney();
 			}
 			else if (num == 5) {
-				showMenu();
+				continue;
 			}
 		}
 	}
+	public static void addmoney () {
+		Scanner input = new Scanner(System.in);
+		System.out.println("Eat:1, Transportation:2, Play outside:3, Other:4");
+		System.out.print("Type of Money Spend:");
+		int typemoneyspend = input.nextInt();
+		System.out.print("Date of Money Spend:");
+		String datemoneyspend = input.next();
+		System.out.print("Amount of Money Spend:");
+		int amountmoneyspend = input.nextInt();
+	}
+	public static void deletemoney () {
+		Scanner input = new Scanner(System.in);
+		System.out.print("Delete Money Spend:");
+		int deletemoneyspend = input.nextInt();
+	}
+	public static void editmoney () {
+		Scanner input = new Scanner(System.in);
+		System.out.print("Edit Money Spend:");
+		int editmoneyspend = input.nextInt();
+	}
+	public static void viewmoney () {
+		Scanner input = new Scanner(System.in);
+		System.out.print("View Money Spend:");
+		int viewmoneyspend = input.nextInt();
+	}
+	sss();
 }
