@@ -16,7 +16,7 @@ public class MenuManager {
 		Scanner input = new Scanner(System.in);
 		MoneyspendManager moneyspendManager = new MoneyspendManager(input);
 		
-		int num = 0;
+		int num = -1;
 		while (num != 5) {
 			showMenu();
 			num = input.nextInt();

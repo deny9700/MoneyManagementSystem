@@ -8,7 +8,8 @@ public class Moneyspend {
 	public Moneyspend() {
 	}
 	
-	public Moneyspend(String moneydate, int moneyamount) {
+	public Moneyspend(int moneytype, String moneydate, int moneyamount) {
+		this.moneytype = moneytype;
 		this.moneydate = moneydate;
 		this.moneyamount = moneyamount;
 	}
