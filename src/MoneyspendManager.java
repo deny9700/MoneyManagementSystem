@@ -4,7 +4,7 @@ public class MoneyspendManager {
 	Moneyspend moneyspend;
 	Scanner input;
 	MoneyspendManager(Scanner input) {
-		this.input =  input;
+		this.input = input;
 	}
 	
 	public void addmoney () {
@@ -17,8 +17,9 @@ public class MoneyspendManager {
 		moneyspend.moneydate = input.next();
 		System.out.print("Amount of Money Spend(Won):");
 		moneyspend.moneyamount = input.nextInt();
-		System.out.print("Detail of Money Spend:");
-		moneyspend.moneydetail = input.next();
+		System.out.print("Detail of Money Spend(No Space):");
+		input.nextLine();
+		moneyspend.moneydetail = input.nextLine();
 	}
 	
 	public void deletemoney () {
@@ -43,7 +44,7 @@ public class MoneyspendManager {
 	}
 	
 	public void viewmoney () {
-		System.out.print("View Money Spend:");
+		System.out.print("Input Money Spend Type:");
 		int moneyspendtype = input.nextInt();
 		if (moneyspend.moneytype == moneyspendtype) {
 			moneyspend.printInfo();
