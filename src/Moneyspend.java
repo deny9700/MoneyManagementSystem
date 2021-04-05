@@ -1,4 +1,3 @@
-
 public class Moneyspend {
 	int moneytype;
 	String moneydate;
