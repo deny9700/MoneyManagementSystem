@@ -21,11 +21,13 @@ public class MoneyspendManager {
 			
 			if(moneyspendmethod == 1) {
 				moneyspend = new Moneyspend();
+				moneyspend.getMoneyInput(input);
 				moneyspends.add(moneyspend);
 				break;
 			}
 			else if (moneyspendmethod == 2) {
 				moneyspend = new Moneyspend();
+				moneyspend.getMoneyInput(input);
 				moneyspends.add(moneyspend);
 				break;
 			}
