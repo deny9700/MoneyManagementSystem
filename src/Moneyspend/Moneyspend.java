@@ -25,6 +25,14 @@ public class Moneyspend {
 		this.moneydetail = moneydetail;
 	}
 	
+	public Moneyspend(MoneySpendMethod method, int moneytype, String moneydate, int moneyamount, String moneydetail) {
+		this.method = method;
+		this.moneytype = moneytype;
+		this.moneydate = moneydate;
+		this.moneyamount = moneyamount;
+		this.moneydetail = moneydetail;
+	}
+	
 	public MoneySpendMethod getMethod() {
 		return method;
 	}
@@ -65,8 +73,23 @@ public class Moneyspend {
 		this.moneydetail = moneydetail;
 	}
 	
+	String smethod = "none";
 	public void printInfo() {
-		System.out.println("Type:" + moneytype + "Date:" + moneydate + "Amount:" + moneyamount + "Detail:" + moneydetail);
+		switch(this.method) {
+		case CheckCard:
+			smethod = "Check";
+			break;
+		case CreditCard:
+			smethod = "Credit";
+			break;
+		case BankTransfer:
+			smethod = "Bank";
+			break;
+		case Cash:
+			smethod = "Cash";
+			break;
+		}
+		System.out.println("Method:" + smethod + "Type:" + moneytype + "Date:" + moneydate + "Amount:" + moneyamount + "Detail:" + moneydetail);
 	}
 	
 	public void getMoneyInput(Scanner input) {
