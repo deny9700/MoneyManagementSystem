@@ -12,6 +12,10 @@ public class Moneyspend {
 	public Moneyspend() {
 	}
 	
+	public Moneyspend(MoneySpendMethod method) {
+		this.method = method;
+	}
+	
 	public Moneyspend(int moneytype, String moneydate, int moneyamount) {
 		this.moneytype = moneytype;
 		this.moneydate = moneydate;
@@ -73,8 +77,8 @@ public class Moneyspend {
 		this.moneydetail = moneydetail;
 	}
 	
-	String smethod = "none";
 	public void printInfo() {
+		String smethod = "none";
 		switch(this.method) {
 		case CheckCard:
 			smethod = "Check";
@@ -88,6 +92,7 @@ public class Moneyspend {
 		case Cash:
 			smethod = "Cash";
 			break;
+		default:
 		}
 		System.out.println("Method:" + smethod + "Type:" + moneytype + "Date:" + moneydate + "Amount:" + moneyamount + "Detail:" + moneydetail);
 	}

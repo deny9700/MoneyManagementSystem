@@ -1,6 +1,9 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import Moneyspend.BankTransferMoneyspend;
+import Moneyspend.CreditCardMoneyspend;
+import Moneyspend.MoneySpendMethod;
 import Moneyspend.Moneyspend;
 
 public class MoneyspendManager {
@@ -16,21 +19,31 @@ public class MoneyspendManager {
 		while (moneyspendmethod != 1 && moneyspendmethod != 2) {
 			System.out.println("1 for Check Card");
 			System.out.println("2 for Credit Card");
-			System.out.print("Select num for Money Spend Method between 1 and 2:");
+			System.out.println("3 for Bank Transfer");
+			System.out.print("Select num for Money Spend Method between 1, 2 or 3:");
 			moneyspendmethod = input.nextInt();
 			
 			if(moneyspendmethod == 1) {
-				moneyspend = new Moneyspend();
+				moneyspend = new Moneyspend(MoneySpendMethod.CheckCard);
 				moneyspend.getMoneyInput(input);
 				moneyspends.add(moneyspend);
 				break;
 			}
+			
 			else if (moneyspendmethod == 2) {
-				moneyspend = new Moneyspend();
+				moneyspend = new CreditCardMoneyspend(MoneySpendMethod.CreditCard);
 				moneyspend.getMoneyInput(input);
 				moneyspends.add(moneyspend);
 				break;
 			}
+			
+			else if (moneyspendmethod == 3) {
+				moneyspend = new BankTransferMoneyspend(MoneySpendMethod.BankTransfer);
+				moneyspend.getMoneyInput(input);
+				moneyspends.add(moneyspend);
+				break;
+			}
+			
 			else {
 				System.out.print("Select num for Money Spend Method between 1 and 2:");
 			}
