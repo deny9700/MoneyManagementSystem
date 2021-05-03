@@ -45,7 +45,7 @@ public class MoneyspendManager {
 			}
 			
 			else {
-				System.out.print("Select num for Money Spend Method between 1 and 2:");
+				System.out.print("Select num for Money Spend Method between 1, 2 or 3:");
 			}
 		}
 	}

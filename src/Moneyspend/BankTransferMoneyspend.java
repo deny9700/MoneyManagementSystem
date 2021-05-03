@@ -19,7 +19,7 @@ public class BankTransferMoneyspend extends Moneyspend {
 			
 	        if (answer1 == 'Y'||answer1 == 'y') {
 	        	while(answer2 !='y'&&answer2!='Y'&&answer2!='n'&&answer2!='N') {
-	    			System.out.print("your money??(Y/N):");
+	    			System.out.print("본인의 돈입니까?(Y/N):");
 	    			answer2 = input.next().charAt(0);
 	    			
 	        		if (answer2 == 'Y'||answer2 == 'y') {
@@ -52,7 +52,7 @@ public class BankTransferMoneyspend extends Moneyspend {
 	        
 	        else if(answer1 == 'n' || answer1 == 'N') {
 		        while(answer2 !='y'&&answer2!='Y'&&answer2!='n'&&answer2!='N') {
-		        	System.out.print("your money??(Y/N):");
+		        	System.out.print("본인의 돈입니까?(Y/N):");
 	    			answer2 = input.next().charAt(0);
 	    			
 	        		if (answer2 == 'Y'||answer2 == 'y') {
