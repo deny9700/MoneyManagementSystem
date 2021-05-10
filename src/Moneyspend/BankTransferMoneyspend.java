@@ -26,15 +26,15 @@ public class BankTransferMoneyspend extends Moneyspend implements MoneyInput {
 		        	
 		        	
 	        			System.out.print("Date of Money Spend in One Month: ");
-		        		String sMoneydate = input.next();
-			            this.setMoneydate(sMoneydate);
+		        		String Moneydate = input.next();
+			            this.setMoneydate(Moneydate);
 			            System.out.print("Amount of Money Spend: ");
-			            int sMoneyamount = input.nextInt();
-			            this.setMoneyamount(sMoneyamount);
+			            int Moneyamount = input.nextInt();
+			            this.setMoneyamount(Moneyamount);
 			            System.out.print("Detail of Money Spend(No Space): ");
 			            input.nextLine();
-			    		String sMoneydetail = input.nextLine();
-			    		this.setMoneydetail(sMoneydetail);
+			    		String Moneydetail = input.nextLine();
+			    		this.setMoneydetail(Moneydetail);
 			            break;
 		       
 	        		}
