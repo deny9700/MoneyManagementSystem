@@ -2,12 +2,14 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 import Moneyspend.BankTransferMoneyspend;
+import Moneyspend.CheckCardMoneyspend;
 import Moneyspend.CreditCardMoneyspend;
+import Moneyspend.MoneyInput;
 import Moneyspend.MoneySpendMethod;
 import Moneyspend.Moneyspend;
 
 public class MoneyspendManager {
-	ArrayList<Moneyspend> moneyspends = new ArrayList<Moneyspend>();
+	ArrayList<MoneyInput> moneyspends = new ArrayList<MoneyInput>();
 	Scanner input;
 	MoneyspendManager(Scanner input) {
 		this.input = input;
@@ -15,8 +17,8 @@ public class MoneyspendManager {
 	
 	public void addmoney () {
 		int moneyspendmethod = 0;
-		Moneyspend moneyspend;
-		while (moneyspendmethod != 1 && moneyspendmethod != 2) {
+		MoneyInput moneyInput;
+		while (moneyspendmethod != 1 && moneyspendmethod != 2 && moneyspendmethod != 3) {
 			System.out.println("1 for Check Card");
 			System.out.println("2 for Credit Card");
 			System.out.println("3 for Bank Transfer");
@@ -24,23 +26,23 @@ public class MoneyspendManager {
 			moneyspendmethod = input.nextInt();
 			
 			if(moneyspendmethod == 1) {
-				moneyspend = new Moneyspend(MoneySpendMethod.CheckCard);
-				moneyspend.getMoneyInput(input);
-				moneyspends.add(moneyspend);
+				moneyInput = new CheckCardMoneyspend(MoneySpendMethod.CheckCard);
+				moneyInput.getMoneyInput(input);
+				moneyspends.add(moneyInput);
 				break;
 			}
 			
 			else if (moneyspendmethod == 2) {
-				moneyspend = new CreditCardMoneyspend(MoneySpendMethod.CreditCard);
-				moneyspend.getMoneyInput(input);
-				moneyspends.add(moneyspend);
+				moneyInput = new CreditCardMoneyspend(MoneySpendMethod.CreditCard);
+				moneyInput.getMoneyInput(input);
+				moneyspends.add(moneyInput);
 				break;
 			}
 			
 			else if (moneyspendmethod == 3) {
-				moneyspend = new BankTransferMoneyspend(MoneySpendMethod.BankTransfer);
-				moneyspend.getMoneyInput(input);
-				moneyspends.add(moneyspend);
+				moneyInput = new BankTransferMoneyspend(MoneySpendMethod.BankTransfer);
+				moneyInput.getMoneyInput(input);
+				moneyspends.add(moneyInput);
 				break;
 			}
 			
@@ -75,8 +77,8 @@ public class MoneyspendManager {
 		System.out.print("Edit Money Spend Type:");
 		int moneyspendtype = input.nextInt();
 		for (int i = 0; i<moneyspends.size(); i++) {
-			Moneyspend moneyspend = moneyspends.get(i);
-			if (moneyspend.getMoneytype() == moneyspendtype) {
+			MoneyInput moneyInput = moneyspends.get(i);
+			if (moneyInput.getMoneytype() == moneyspendtype) {
 				int num = -1;
 				while (num != 5) {
 					System.out.println("*** Money Management Edit Menu ***");
@@ -90,23 +92,23 @@ public class MoneyspendManager {
 					if(num == 1) {
 						System.out.print("Type of Money Spend:");
 						int moneytype = input.nextInt();
-						moneyspend.setMoneytype(moneytype);
+						moneyInput.setMoneytype(moneytype);
 					}
 					else if (num == 2) {
 						System.out.print("Date of Money Spend History:");
 						String moneydate = input.next();
-						moneyspend.setMoneydate(moneydate);
+						moneyInput.setMoneydate(moneydate);
 					}
 					else if (num == 3 ) {
 						System.out.print("Amount of Money Spend History(Won):");
 						int moneyamount = input.nextInt();
-						moneyspend.setMoneyamount(moneyamount);
+						moneyInput.setMoneyamount(moneyamount);
 					}
 					else if (num == 4 ) {
 						System.out.print("Detail of Money Spend History(No Space):");
 						input.nextLine();
 						String moneydetail = input.nextLine();
-						moneyspend.setMoneydetail(moneydetail);
+						moneyInput.setMoneydetail(moneydetail);
 					}
 					else {
 						continue;

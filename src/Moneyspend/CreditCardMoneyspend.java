@@ -2,7 +2,7 @@ package Moneyspend;
 
 import java.util.Scanner;
 
-public class CreditCardMoneyspend extends Moneyspend {
+public class CreditCardMoneyspend extends Moneyspend implements MoneyInput {
 	
 	public CreditCardMoneyspend(MoneySpendMethod method) {
 		super(method);
@@ -37,5 +37,25 @@ public class CreditCardMoneyspend extends Moneyspend {
 	        else {
 	        }
 		}
+	}
+	
+	public void printInfo() {
+		String smethod = "none";
+		switch(this.method) {
+		case CheckCard:
+			smethod = "Check";
+			break;
+		case CreditCard:
+			smethod = "Credit";
+			break;
+		case BankTransfer:
+			smethod = "Bank";
+			break;
+		case Cash:
+			smethod = "Cash";
+			break;
+		default:
+		}
+		System.out.println("Method:" + smethod + "Type:" + moneytype + "Date:" + moneydate + "Amount:" + moneyamount + "Detail:" + moneydetail);
 	}
 }

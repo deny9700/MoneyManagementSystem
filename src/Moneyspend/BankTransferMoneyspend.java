@@ -2,7 +2,7 @@ package Moneyspend;
 
 import java.util.Scanner;
 
-public class BankTransferMoneyspend extends Moneyspend {
+public class BankTransferMoneyspend extends Moneyspend implements MoneyInput {
 	
 	protected int parentMoneytype;
 	
