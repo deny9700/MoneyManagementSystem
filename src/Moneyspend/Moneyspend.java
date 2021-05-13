@@ -2,6 +2,8 @@ package Moneyspend;
 
 import java.util.Scanner;
 
+import exception.MoneyDateException;
+
 public abstract class Moneyspend implements MoneyInput {
 	protected MoneySpendMethod method = MoneySpendMethod.CheckCard;
 	protected int moneytype;
@@ -57,7 +59,11 @@ public abstract class Moneyspend implements MoneyInput {
 		return moneydate;
 	}
 
-	public void setMoneydate(String moneydate) {
+	public void setMoneydate(String moneydate) throws MoneyDateException {
+		if(moneydate.contains("-")) {
+			throw new MoneyDateException();
+		}
+		
 		this.moneydate = moneydate;
 	}
 
@@ -86,9 +92,17 @@ public abstract class Moneyspend implements MoneyInput {
 	}
 	
 	public void setMoneyspendDate(Scanner input) {
-		System.out.print("Date of Money Spend History:");
-		String moneydate = input.next();
-		this.setMoneydate(moneydate);
+		String date = "";
+		while(!moneydate.contains("-")) {
+			System.out.print("Date of Money Spend History:");
+			String moneydate = input.next();
+			try {
+				this.setMoneydate(moneydate);
+			}
+			catch (MoneyDateException e) {
+				System.out.println("Incorrect Date Format. Put '-' between year, month and date.");
+			}
+		}
 	}
 	
 	public void setMoneyspendAmount(Scanner input) {

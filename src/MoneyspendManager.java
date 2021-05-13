@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import Moneyspend.BankTransferMoneyspend;
@@ -19,36 +20,46 @@ public class MoneyspendManager {
 		int moneyspendmethod = 0;
 		MoneyInput moneyInput;
 		while (moneyspendmethod != 1 && moneyspendmethod != 2 && moneyspendmethod != 3) {
-			System.out.println("1 for Check Card");
-			System.out.println("2 for Credit Card");
-			System.out.println("3 for Bank Transfer");
-			System.out.print("Select num for Money Spend Method between 1, 2 or 3:");
-			moneyspendmethod = input.nextInt();
-			
-			if(moneyspendmethod == 1) {
-				moneyInput = new CheckCardMoneyspend(MoneySpendMethod.CheckCard);
-				moneyInput.getMoneyInput(input);
-				moneyspends.add(moneyInput);
-				break;
-			}
-			
-			else if (moneyspendmethod == 2) {
-				moneyInput = new CreditCardMoneyspend(MoneySpendMethod.CreditCard);
-				moneyInput.getMoneyInput(input);
-				moneyspends.add(moneyInput);
-				break;
-			}
-			
-			else if (moneyspendmethod == 3) {
-				moneyInput = new BankTransferMoneyspend(MoneySpendMethod.BankTransfer);
-				moneyInput.getMoneyInput(input);
-				moneyspends.add(moneyInput);
-				break;
-			}
-			
-			else {
+			try {
+				System.out.println("1 for Check Card");
+				System.out.println("2 for Credit Card");
+				System.out.println("3 for Bank Transfer");
 				System.out.print("Select num for Money Spend Method between 1, 2 or 3:");
+				moneyspendmethod = input.nextInt();
+				
+				if(moneyspendmethod == 1) {
+					moneyInput = new CheckCardMoneyspend(MoneySpendMethod.CheckCard);
+					moneyInput.getMoneyInput(input);
+					moneyspends.add(moneyInput);
+					break;
+				}
+				
+				else if (moneyspendmethod == 2) {
+					moneyInput = new CreditCardMoneyspend(MoneySpendMethod.CreditCard);
+					moneyInput.getMoneyInput(input);
+					moneyspends.add(moneyInput);
+					break;
+				}
+				
+				else if (moneyspendmethod == 3) {
+					moneyInput = new BankTransferMoneyspend(MoneySpendMethod.BankTransfer);
+					moneyInput.getMoneyInput(input);
+					moneyspends.add(moneyInput);
+					break;
+				}
+				
+				else {
+					System.out.print("Select num for Money Spend Method between 1, 2 or 3:");
+				}
 			}
+			catch(InputMismatchException e) {
+				System.out.print("Please select one number between 1 - 3! ");
+				if(input.hasNext()) {
+					input.next();
+				}
+				moneyspendmethod = -1;
+			}
+			
 		}
 	}
 	

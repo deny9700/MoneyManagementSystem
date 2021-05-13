@@ -2,13 +2,15 @@ package Moneyspend;
 
 import java.util.Scanner;
 
+import exception.MoneyDateException;
+
 public interface MoneyInput {
 	
 	public int getMoneytype();
 	
 	public void setMoneytype(int moneytype);
 	
-	public void setMoneydate(String moneydate);
+	public void setMoneydate(String moneydate) throws MoneyDateException;
 	
 	public void setMoneyamount(int moneyamount);
 	
