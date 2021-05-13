@@ -17,4 +17,12 @@ public interface MoneyInput {
 	public void getMoneyInput(Scanner input);
 	
 	public void printInfo();
+	
+	public void setMoneyspendType(Scanner input);
+	
+	public void setMoneyspendDate(Scanner input);
+	
+	public void setMoneyspendAmount(Scanner input);
+	
+	public void setMoneyspendDetail(Scanner input);
 }

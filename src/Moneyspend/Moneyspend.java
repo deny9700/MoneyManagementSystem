@@ -2,7 +2,7 @@ package Moneyspend;
 
 import java.util.Scanner;
 
-public abstract class Moneyspend {
+public abstract class Moneyspend implements MoneyInput {
 	protected MoneySpendMethod method = MoneySpendMethod.CheckCard;
 	protected int moneytype;
 	protected String moneydate;
@@ -78,4 +78,49 @@ public abstract class Moneyspend {
 	}
 	
 	public abstract void printInfo();
+	
+	public void setMoneyspendType(Scanner input) {
+		System.out.print("Type of Money Spend:");
+		int moneytype = input.nextInt();
+		this.setMoneytype(moneytype);
+	}
+	
+	public void setMoneyspendDate(Scanner input) {
+		System.out.print("Date of Money Spend History:");
+		String moneydate = input.next();
+		this.setMoneydate(moneydate);
+	}
+	
+	public void setMoneyspendAmount(Scanner input) {
+		System.out.print("Amount of Money Spend History(Won):");
+		int moneyamount = input.nextInt();
+		this.setMoneyamount(moneyamount);
+	}
+	
+	public void setMoneyspendDetail(Scanner input) {
+		System.out.print("Detail of Money Spend History(No Space):");
+		input.nextLine();
+		String moneydetail = input.nextLine();
+		this.setMoneydetail(moneydetail);
+	}
+	
+	public String getMethodString() {
+		String smethod = "none";
+		switch(this.method) {
+		case CheckCard:
+			smethod = "Check";
+			break;
+		case CreditCard:
+			smethod = "Credit";
+			break;
+		case BankTransfer:
+			smethod = "Bank";
+			break;
+		case Cash:
+			smethod = "Cash";
+			break;
+		default:
+		}
+		return smethod;
+	}
 }

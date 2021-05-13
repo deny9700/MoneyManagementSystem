@@ -55,62 +55,34 @@ public class MoneyspendManager {
 	public void deletemoney () {
 		System.out.print("Delete Money Spend Type:");
 		int moneyspendtype = input.nextInt();
-		int index = -1;
-		for (int i = 0; i<moneyspends.size(); i++) {
-			if (moneyspends.get(i).getMoneytype() == moneyspendtype) {
-				index = i;
-				break;
-			}
-		}
-		
-		if (index >= 0) {
-			moneyspends.remove(index);
-			System.out.println("This spend history" + moneyspendtype + "is deleted");
-		}
-		else {
-			System.out.println("This spend record has not been recorded");
-			return;
-		}
+		int index = findIndex(moneyspendtype);
+		removefromMoneyspends(index, moneyspendtype);
 	}
 	
 	public void editmoney () {
 		System.out.print("Edit Money Spend Type:");
 		int moneyspendtype = input.nextInt();
-		for (int i = 0; i<moneyspends.size(); i++) {
-			MoneyInput moneyInput = moneyspends.get(i);
-			if (moneyInput.getMoneytype() == moneyspendtype) {
+		for (int i=0; i<moneyspends.size(); i++) {
+			MoneyInput money = moneyspends.get(i);
+			if (money.getMoneytype() == moneyspendtype) {
 				int num = -1;
 				while (num != 5) {
-					System.out.println("*** Money Management Edit Menu ***");
-					System.out.println("1. Edit Type of Money Spend");
-					System.out.println("2. Edit Date of Money Spend");
-					System.out.println("3. Edit Amount of Money Spend");
-					System.out.println("4. Edit Detail of Money Spend");
-					System.out.println("5. Exit");
-					System.out.print("Select one number between 1 - 5 : ");
+					showEditMenu();
 					num = input.nextInt();
-					if(num == 1) {
-						System.out.print("Type of Money Spend:");
-						int moneytype = input.nextInt();
-						moneyInput.setMoneytype(moneytype);
-					}
-					else if (num == 2) {
-						System.out.print("Date of Money Spend History:");
-						String moneydate = input.next();
-						moneyInput.setMoneydate(moneydate);
-					}
-					else if (num == 3 ) {
-						System.out.print("Amount of Money Spend History(Won):");
-						int moneyamount = input.nextInt();
-						moneyInput.setMoneyamount(moneyamount);
-					}
-					else if (num == 4 ) {
-						System.out.print("Detail of Money Spend History(No Space):");
-						input.nextLine();
-						String moneydetail = input.nextLine();
-						moneyInput.setMoneydetail(moneydetail);
-					}
-					else {
+					switch(num) {
+					case 1:
+						money.setMoneyspendType(input);
+						break;
+					case 2:
+						money.setMoneyspendDate(input);
+						break;
+					case 3:
+						money.setMoneyspendAmount(input);
+						break;
+					case 4:
+						money.setMoneyspendDetail(input);
+						break;
+					default:
 						continue;
 					}
 				}
@@ -120,10 +92,41 @@ public class MoneyspendManager {
 	}
 	
 	public void viewmoneys () {
-//		System.out.print("Input Money Spend Type:");
-//		int moneyspendtype = input.nextInt();
-		for (int i = 0; i<moneyspends.size(); i++) {
+		for (int i=0; i<moneyspends.size(); i++) {
 			moneyspends.get(i).printInfo();
 		}
+	}
+	
+	public int findIndex(int moneyspendtype) {
+		int index = -1;
+		for (int i = 0; i<moneyspends.size(); i++) {
+			if (moneyspends.get(i).getMoneytype() == moneyspendtype) {
+				index = i;
+				break;
+			}
+		}
+		return index;
+	}
+	
+	public int removefromMoneyspends(int index, int moneyspendtype) {
+		if (index >= 0) {
+			moneyspends.remove(index);
+			System.out.println("This spend history" + moneyspendtype + "is deleted");
+			return 1;
+		}
+		else {
+			System.out.println("This spend record has not been recorded");
+			return -1;
+		}
+	}
+	
+	public void showEditMenu() {
+		System.out.println("*** Money Management Edit Menu ***");
+		System.out.println("1. Edit Type of Money Spend");
+		System.out.println("2. Edit Date of Money Spend");
+		System.out.println("3. Edit Amount of Money Spend");
+		System.out.println("4. Edit Detail of Money Spend");
+		System.out.println("5. Exit");
+		System.out.print("Select one number between 1 - 5 : ");
 	}
 }
