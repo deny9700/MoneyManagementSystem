@@ -1,10 +1,15 @@
 package Moneyspend;
 
+import java.io.Serializable;
 import java.util.Scanner;
-
 import exception.MoneyDateException;
 
-public abstract class Moneyspend implements MoneyInput {
+public abstract class Moneyspend implements MoneyInput, Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -8316114811035136039L;
+	
 	protected MoneySpendMethod method = MoneySpendMethod.CheckCard;
 	protected int moneytype;
 	protected String moneydate;
@@ -60,7 +65,7 @@ public abstract class Moneyspend implements MoneyInput {
 	}
 
 	public void setMoneydate(String moneydate) throws MoneyDateException {
-		if(moneydate.contains("-")) {
+		if(!moneydate.contains("-")) {
 			throw new MoneyDateException();
 		}
 		
@@ -93,13 +98,12 @@ public abstract class Moneyspend implements MoneyInput {
 	
 	public void setMoneyspendDate(Scanner input) {
 		String date = "";
-		while(!moneydate.contains("-")) {
+		while(!date.contains("-")) {
 			System.out.print("Date of Money Spend History:");
-			String moneydate = input.next();
+			date = input.next();
 			try {
-				this.setMoneydate(moneydate);
-			}
-			catch (MoneyDateException e) {
+				this.setMoneydate(date);
+			} catch (MoneyDateException e) {
 				System.out.println("Incorrect Date Format. Put '-' between year, month and date.");
 			}
 		}

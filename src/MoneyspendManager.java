@@ -1,3 +1,4 @@
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -7,11 +8,15 @@ import Moneyspend.CheckCardMoneyspend;
 import Moneyspend.CreditCardMoneyspend;
 import Moneyspend.MoneyInput;
 import Moneyspend.MoneySpendMethod;
-import Moneyspend.Moneyspend;
 
-public class MoneyspendManager {
+public class MoneyspendManager implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 6832326683472366294L;
+	
 	ArrayList<MoneyInput> moneyspends = new ArrayList<MoneyInput>();
-	Scanner input;
+	transient Scanner input;
 	MoneyspendManager(Scanner input) {
 		this.input = input;
 	}

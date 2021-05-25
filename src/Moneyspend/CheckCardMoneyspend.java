@@ -4,6 +4,11 @@ import java.util.Scanner;
 
 public class CheckCardMoneyspend extends NonCashMoneyspend {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 5175261955093447633L;
+
 	public CheckCardMoneyspend(MoneySpendMethod method) {
 		super(method);
 	}
