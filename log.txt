@@ -1,4 +1,0 @@
-5월 25, 2021 1:54:41 오후 log.EventLogger log
-정보: add money spend
-5월 25, 2021 1:54:48 오후 log.EventLogger log
-정보: view money spend
