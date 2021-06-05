@@ -1,3 +1,5 @@
+package manager;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
@@ -8,6 +10,7 @@ import Moneyspend.CheckCardMoneyspend;
 import Moneyspend.CreditCardMoneyspend;
 import Moneyspend.MoneyInput;
 import Moneyspend.MoneySpendMethod;
+import Moneyspend.Moneyspend;
 
 public class MoneyspendManager implements Serializable{
 	/**
@@ -111,6 +114,14 @@ public class MoneyspendManager implements Serializable{
 		for (int i=0; i<moneyspends.size(); i++) {
 			moneyspends.get(i).printInfo();
 		}
+	}
+	
+	public int size() {
+		return moneyspends.size();
+	}
+	
+	public MoneyInput get(int index) {
+		return (Moneyspend) moneyspends.get(index);
 	}
 	
 	public int findIndex(int moneyspendtype) {

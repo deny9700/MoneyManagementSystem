@@ -10,9 +10,15 @@ public interface MoneyInput {
 	
 	public void setMoneytype(int moneytype);
 	
+	public String getMoneydate();
+	
 	public void setMoneydate(String moneydate) throws MoneyDateException;
 	
+	public int getMoneyamount();
+	
 	public void setMoneyamount(int moneyamount);
+	
+	public String getMoneydetail();
 	
 	public void setMoneydetail(String moneydetail);
 	
